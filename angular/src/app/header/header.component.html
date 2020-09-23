@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">Online Shopping</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories <span class="sr-only">(current)</span></a>
+                    <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" routerLink='/mens'>Mens Wear</a>
+                        <a class="dropdown-item" routerLink="/womens">Womens Wear</a>
+                        <a class="dropdown-item" routerLink='/kids'>Kids Wear</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/about" >About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact">Contact</a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary btn-number">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <a class="btn btn-sm ml-3 btn-success" routerLink='/login'>Login</a>
+                <a class="btn btn-sm ml-3 btn-success" routerLink='/register'>Register</a>
+                <div class="dropdown">
+                <a class="btn btn-sm ml-3 btn-success dropdown-toggle" href="#" id="navDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More</a>
+                <div class="dropdown-menu bg-dark" aria-labelledby="navDown">
+                    <a class="dropdown-item" routerLink='/products'>Upload Product</a>
+                    <a class="dropdown-item" routerLink="/orders">My Orders</a>
+                    <a class="dropdown-item" routerLink='/admin'>Admin</a>
+                    <a class="dropdown-item" style="color:#FFFFFF80; cursor:pointer" (click)="logout()">Logout</a>
+                </div>
+            </div>
+                
+                <a class="btn btn-success btn-sm ml-3" routerLink = '/cart'>
+                     Cart
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

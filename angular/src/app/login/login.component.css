@@ -1,0 +1,33 @@
+#loginbox{
+    width:400px;
+    margin:30px auto;
+    margin-top:50px;
+    background-color:#f7f7f7;
+}
+div{
+    display:block;
+}
+
+.or-seperator{
+    margin-top:20px;
+    text-align:center;
+    border-top:1px solid #ccc;
+}
+.or-seperator i{
+    padding: 0 10px;
+    background:#f7f7f7;
+    position:relative;
+    top:-13px;
+}
+.text-center{
+    text-align: center!important;
+}
+.social-btn .btn:hover{
+    opacity:0.9;
+}
+.social-btn{
+    padding-bottom:20px;
+}
+.invalid{
+    color:red;
+}

@@ -1,0 +1,41 @@
+<div class="container">
+    <div id="contactbox" class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+      <form [formGroup]="contactForm" (ngSubmit)="sendMessage()">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+              <div class="panel-title" style="margin-top:20px;"><h2 class="text-center">Contact Us</h2></div>
+              <div>Please fill the below form in a decent manner</div>
+          </div>
+          <div style="padding-top:15px;" class="panel-body" >
+  
+            <div style="margin-bottom: 25px" class="form-group">
+              <input  type="text" class="form-control" formControlName="name" placeholder="Enter you full name">
+              <div *ngIf="submitted && contactForm.controls.name.errors">
+                  <div class="invalid" *ngIf="contactForm.controls.name.errors.required">
+                      This feild is required
+                  </div>
+              </div>
+            </div>
+  
+            <div style="margin-bottom: 25px" class="form-group">
+              <input formControlName="email" type="text" class="form-control" placeholder="Enter your email id here">
+              <div *ngIf="submitted && contactForm.controls.email.errors">
+                  <div class="invalid" *ngIf="contactForm.controls.email.errors.required">
+                      This feild is required
+                  </div>
+              </div>
+            </div>
+            
+            <div style="margin-bottom: 25px;" class="form-group">
+                <textarea class="form-control"></textarea>
+            </div>
+
+            <div style="margin-top:10px" class="form-group">
+              <button type="submit" class="col-sm-12 controls btn btn-primary login-btn btn-block" style="width:100%;">Upload</button>
+            </div>
+  
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

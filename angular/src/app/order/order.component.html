@@ -1,0 +1,148 @@
+<div class="container">
+    <div id="orderbox" class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+            <div class="orderDetails">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Price Details</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <thead>
+                      <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">cost</th>
+                        <th scope="col">total</th>
+                      </tr>
+                      <tr *ngFor="let image of myOrdersService.cartItems">
+                        <td>{{image.name}}</td>
+                        <td>{{image.quantity}}</td>
+                        <td>{{image.cost}}</td>
+                        <td>{{image.price}}</td>
+                      </tr>
+                      <tr>
+                          <th>TOTAL AMOUNT</th>
+                          <th></th>
+                          <th></th>
+                          <th>{{myOrdersService.cartItems.totalPrice}}</th>
+                      </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="panel panel-info" >
+            <div class="panel-heading">
+                <div class="panel-title" style="margin-top:20px;"><h4>Delivery Address</h4></div>
+            </div>
+            </div>
+
+            <div style="padding-top:15px;" class="panel-body" >
+                <div style="margin-bottom: 25px" class="form-group">
+                    <input  type="text" class="form-control" formControlName="address1" placeholder="Address Line 1">
+                    <div *ngIf="submitted && orderForm.controls.address1.errors">
+                    <div class="invalid" *ngIf="orderForm.controls.address1.errors.required">
+                        This feild is required
+                    </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px" class="form-group">
+                    <input  type="text" class="form-control" formControlName="address2" placeholder="Address Line 2">
+                    <div *ngIf="submitted && orderForm.controls.address2.errors">
+                        <div class="invalid" *ngIf="orderForm.controls.address2.errors.required">
+                            This feild is required
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px" class="form-group">
+                    <input  type="text" class="form-control" formControlName="city" placeholder="City ex:Kadapa">
+                    <div *ngIf="submitted && orderForm.controls.city.errors">
+                        <div class="invalid" *ngIf="orderForm.controls.city.errors.required">
+                            This feild is required
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px" class="form-group">
+                    <input formControlName="state" type="text" class="form-control" placeholder="State ex: Kerala">
+                    <div *ngIf="submitted && orderForm.controls.state.errors">
+                        <div class="invalid" *ngIf="orderForm.controls.state.errors.required">
+                            This feild is required
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px" class="form-group">
+                    <input formControlName="country" type="text" class="form-control" placeholder="country ex:India">
+                    <div *ngIf="submitted && orderForm.controls.country.errors">
+                        <div class="invalid" *ngIf="orderForm.controls.country.errors.required">
+                            This feild is required
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px" class="form-group">
+                    <input formControlName="pincode" type="text" class="form-control" placeholder="pincode ex:123344">
+                    <div *ngIf="submitted && orderForm.controls.pincode.errors">
+                        <div class="invalid" *ngIf="orderForm.controls.pincode.errors.required">
+                            This feild is required
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <h4>Card Details</h4>
+            <div class="payment">
+                <div style="margin-bottom: 25px" class="form-group">
+                    <input  type="text" class="form-control" formControlName="chname" placeholder="Name of the card holder">
+                    <div *ngIf="submitted && orderForm.controls.chname.errors">
+                        <div class="invalid" *ngIf="orderForm.controls.chname.errors.required">
+                            This feild is required
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px" class="form-group">
+                    <input  type="text" class="form-control" formControlName="cardno" placeholder="Enter Card NO">
+                    <div *ngIf="submitted && orderForm.controls.cardno.errors">
+                        <div class="invalid" *ngIf="orderForm.controls.cardno.errors.required">
+                            This feild is required
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px" class="btn-group" style="height: 40px;">
+                    <p class="form-control" style="width:40%; height:100%">valid upto</p>
+                    <input type="text" class='form-control float-left' formControlName="month" placeholder="MM" style='width:15%;'>
+                    <div *ngIf="submitted && orderForm.controls.month.errors">
+                        <div class="invalid" *ngIf="orderForm.controls.month.errors.required">
+                            This feild is required
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" formControlName="year" placeholder="YYYY" style="width:20%">
+                    <div *ngIf="submitted && orderForm.controls.year.errors">
+                        <div class="invalid" *ngIf="orderForm.controls.year.errors.required">
+                            This feild is required
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" formControlName="cvv" placeholder="CVV" style="width:20%; margin-left:20px">
+                    <div *ngIf="submitted && orderForm.controls.cvv.errors">
+                        <div class="invalid" *ngIf="orderForm.controls.cvv.errors.required">
+                            This feild is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top:10px" class="form-group">
+                <button type="submit" class="col-sm-12 controls btn btn-primary login-btn btn-block" style="width:100%;">PAY {{myOrdersService.cartItems.totalPrice}}</button>
+            </div>
+        </form>
+    </div>
+</div>

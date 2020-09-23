@@ -1,0 +1,11 @@
+#productsbox{
+    width:400px;
+    margin:30px auto;
+    margin-top:50px;
+    background-color:#f7f7f7;
+}
+
+.invalid{
+    color:red;
+}
+

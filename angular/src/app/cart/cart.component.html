@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div *ngIf="noOfItems == 0; else elseBlock">
+                <h3>Your cart is empty</h3>
+            </div>
+            <ng-template #elseBlock>
+                <div class="cartitem" *ngFor="let image of cartItems">
+                    <div class="row">
+                        <div class="col">
+                            <img [src] = "image.img" class="card-img-top" alt="...">
+                            <div class="group">
+                                <a (click)="decrement(image)" class="qty  btn-info float-left" >-</a>
+                                <p class="nqty float-left">{{image.quantity}}</p>
+                                <a (click)="increment(image)" class="qty btn-info float-left" >+</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h5>{{image.brand}}</h5>
+                            <p>{{image.category}} {{image.name}}</p>
+                            <a (click)="removeImage(image)" style="border-radius: 5px;" class="btn btn-primary">Remove</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Price Details</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <thead>
+                  <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">quantity</th>
+                    <th scope="col">cost</th>
+                    <th scope="col">total</th>
+                  </tr>
+                  <tr *ngFor="let image of cartItems">
+                    <td>{{image.name}}</td>
+                    <td>{{image.quantity}}</td>
+                    <td>{{image.cost}}</td>
+                    <td>{{image.price}}</td>
+                  </tr>
+                  <tr>
+                      <th>TOTAL AMOUNT</th>
+                      <th></th>
+                      <th></th>
+                      <th>{{totalPrice}}</th>
+                  </tr>
+                </thead>
+            </table>
+            <button [routerLink] = "['/order', cartItems]" [disabled] ="noOfItems==0" class="btn btn-success" >Place Order</button>
+        </div>
+    </div>
+</div>

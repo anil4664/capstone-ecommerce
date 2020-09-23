@@ -1,0 +1,15 @@
+<div *ngFor="let image of images" class="container-fluid">
+    <div class="card">
+        <img [src] = "image.img" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{image.brand}}</h5>
+          <p class="card-text">{{image.category}} {{image.name}}</p>
+          <p class="card-text">cost : {{image.cost}}</p>
+          <div class="btn-group">
+            <a (click)="addToWishList(image)" style="border-radius: 5px;" class="btn btn-primary">Wishlist</a>
+            <a (click)="placeOrder(image)" style="border-radius:5px; margin-left:5px;" class="btn btn-primary buy">Buy Now</a>
+          </div>
+        </div>
+      </div>
+</div>
+

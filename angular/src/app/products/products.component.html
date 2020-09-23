@@ -1,0 +1,93 @@
+<div class="container">
+  <div id="productsbox" class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <form [formGroup]="productsForm" (ngSubmit)="sendProduct()">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title" style="margin-top:20px;"><h2 class="text-center">Upload Your Product Here</h2></div>
+        </div>
+        <div style="padding-top:15px;" class="panel-body" >
+
+          <div style="margin-bottom: 25px" class="form-group">
+            <input  type="text" class="form-control" formControlName="productName" placeholder="Name of the product ex:Sneakers">
+            <div *ngIf="submitted && productsForm.controls.productName.errors">
+                <div class="invalid" *ngIf="productsForm.controls.productName.errors.required">
+                    Product Name is must
+                </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 25px" class="form-group">
+            <input formControlName="brand" type="text" class="form-control" placeholder="Brand Name">
+            <div *ngIf="submitted && productsForm.controls.brand.errors">
+                <div class="invalid" *ngIf="productsForm.controls.brand.errors.required">
+                    Brand name is required
+                </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 25px" class="form-group">
+            <select class="form-control" formControlName="category">
+              <option value="" disabled selected hidden>Choose Category...</option>
+              <option>Mens</option>
+              <option>Womens</option>
+              <option>Kids</option>
+              <option>Others</option>
+            </select>
+            <div *ngIf="submitted && productsForm.controls.category.errors">
+              <div class="invalid" *ngIf="productsForm.controls.category.errors.required">
+                This feild is required
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 25px" class="form-group">
+            <select class="form-control" formControlName="subcategory" placeholder="please select a value">
+              <option value="" disabled selected hidden>Choose sub Category...</option>
+              <option>Foot Wear</option>
+              <option>Indian Wear</option>
+              <option>Shirts</option>
+              <option>T shirts</option>
+              <option>Watches</option>
+              <option>others</option>
+            </select>
+            <div *ngIf="submitted && productsForm.controls.subcategory.errors">
+              <div class="invalid" *ngIf="productsForm.controls.subcategory.errors.required">
+                This feild is required
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 25px" class="form-group">
+            <input formControlName="cost" type="text" class="form-control" placeholder="Cost of the product in rupees">
+            <div *ngIf="submitted && productsForm.controls.cost.errors">
+                <div class="invalid" *ngIf="productsForm.controls.cost.errors.required">
+                    Cost is required
+                </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 25px" class="form-group">
+            <input type="file" class="form-control" formControlName="image" (change)="selectImage($event)" />
+            <div *ngIf="submitted && productsForm.controls.productName.errors">
+              <div class="invalid" *ngIf="productsForm.controls.productName.errors.required">
+                  Please Choose A File
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:10px" class="form-group">
+            <button type="submit" class="col-sm-12 controls btn btn-primary login-btn btn-block" style="width:100%;">Upload</button>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+       
+<div>
+  <button class="btn btn-info" (click)="getImages()">getImage</button>
+</div>
+<div>
+  <img [src]="imgURL">
+</div>

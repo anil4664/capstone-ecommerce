@@ -1,0 +1,21 @@
+.dropdown-item {
+    color:#FFFFFF80;
+}
+
+.dropdown-item:hover{
+    background-color: black;
+    color: #FFFFFF;
+}
+
+.nav-item:hover{
+    color: #FFFFFF;
+}
+
+.nav-item:active{
+    color: #FFFFFF;
+}
+
+.navbtn{
+    color : black;
+    background-color: #2874F0;
+}
